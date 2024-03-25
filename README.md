@@ -132,7 +132,7 @@ clusterctl version
 ## Autocomplete pour bash
 echo 'source <(clusterctl completion bash)' >>~/.bashrc
 source ~/.bashrc
-
+```
 ## Lancer et intialiser CAPI
 
 ```bash
