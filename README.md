@@ -155,3 +155,8 @@ kubecm add --file capi-docker-helm.yaml
 kubectx kind-capi-docker
 ```
 et voila
+
+## Documents de référence
+* https://cluster-api.sigs.k8s.io/introduction
+* https://cluster-api.sigs.k8s.io/user/quick-start
+* https://github.com/kubernetes-sigs/cluster-api-addon-provider-helm
