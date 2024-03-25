@@ -132,3 +132,26 @@ clusterctl version
 ## Autocomplete pour bash
 echo 'source <(clusterctl completion bash)' >>~/.bashrc
 source ~/.bashrc
+
+## Lancer et intialiser CAPI
+
+```bash
+# Enable the experimental Cluster topology feature.
+export CLUSTER_TOPOLOGY=true
+clusterctl init --infrastructure docker --addon helm
+kind create cluster --config kind-cluster-with-extramounts.yaml
+```
+Attendre que tout soit en running
+
+## Cluster CAPI avec Cilium
+```bash
+kubectl apply -f capi-docker-helm.yaml
+clusterctl get kubeconfig capi-docker > capi-docker.kubeconfig
+```
+utiliser kubecm pour merge le kubeconfig ou directement le faire depuis vscode
+```bash
+brew install kubecm
+kubecm add --file capi-docker-helm.yaml
+kubectx kind-capi-docker
+```
+et voila
