@@ -103,6 +103,7 @@ kubectl version --client
 sudo apt install bash-completion
 echo 'source <(kubectl completion bash)' >>~/.bashrc
 source ~/.bashrc
+rm kubectl
 ```
 
 * Kind :
@@ -132,14 +133,15 @@ clusterctl version
 ## Autocomplete pour bash
 echo 'source <(clusterctl completion bash)' >>~/.bashrc
 source ~/.bashrc
+rm clusterctl
 ```
 ## Lancer et intialiser CAPI
 
 ```bash
 # Enable the experimental Cluster topology feature.
+kind create cluster --config kind-cluster-with-extramounts.yaml
 export CLUSTER_TOPOLOGY=true
 clusterctl init --infrastructure docker --addon helm
-kind create cluster --config kind-cluster-with-extramounts.yaml
 ```
 Attendre que tout soit en running
 
